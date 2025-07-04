@@ -74,14 +74,10 @@ const SYLVINA_BRIZUELA_TRACKS = [
 ];
 
 
-const palabraPlenaImageUrl = 'https://s.mxmcdn.net/dynamic-images/image/572/572/webp/https%3A%2F%2Faudioboom.com%2Fi%2F36237466.jpg';
+const miltanaPodcastImageUrl = 'https://ia600403.us.archive.org/8/items/podcast_20250703/podcast.png';
 
-const PODCAST_TRACKS = [
-  { id: 203, title: 'No piensen por nosotros', artist: 'Gabriel Rolón', albumArt: palabraPlenaImageUrl, audioSrc: 'https://d11untcg2uthr3.cloudfront.net/v1/download/attachments/36241411/no-piensen-por-nosotros.mp3?a=&c=%5B%22Science%22%2C%22Physics%22%5D&d=2020-03-17&e=dist%3Dno_ads%26one_min%3D1008697%26pl%3Drss%26sub%3Dpl51&eg=tag%3Aaudioboom.com%2C2020-03-17%3A%2Fposts%2F7533195&et=No+piensen+por+nosotros&eu=https%3A%2F%2Faudioboom.com%2Fposts%2F7533195.mp3%3Fmodified%3D1584457964%26sid%3D5021027%26source%3Drss&f=48697&g=7533195&h=5021027&i=7533195-36241411&k=https%3A%2F%2Faudioboom.com%2Fchannels%2F5021027.rss&n=Palabra+Plena%2C+con+Gabriel+Rol%C3%B3n&o=536242&pl=rss&q=-&r=128&sti=386013&u=audioboom&v=inline&Expires=1751274637&Signature=PMTMQBnde3GIwCigsHJtsCMZONMoLU1R8ra9U~xYr76tYwJGgGpueLcVcmGZvuLTtDlBvlLP7B7VSkGg8iMKJR7Te8Qmp3hpzIhkTnZGWV2bt3fAwgYQtwlZv~AfG7IYOLVfdQa6DVLL1hMw3JUeS9ucwChDoeDqlre8LFNZpSbSzDqQ1z9WFWe6zk05m5yVMNkLWUZpkvOR6SfM0rfrjAKdmkeLrDSL3pGNpmdlhDwRC0UvyeXdzI6IJKiwdeF9KPMrQgbef42bDf0bU-XJjxt9cYzMICKSKpqU4sP-0FccOPAZ~YznFzjAhheeLxz1rcH0W0cMRVA~XWCIa~RdZA__&Key-Pair-Id=K20FFT4H3A895N' },
-  { id: 204, title: 'Las llamas del amor', artist: 'Gabriel Rolón', albumArt: palabraPlenaImageUrl, audioSrc: 'https://d11untcg2uthr3.cloudfront.net/v1/download/attachments/36271012/las-llamas-del-amor.mp3?a=&c=%5B%22Science%22%2C%22Physics%22%5D&d=2020-03-24&e=dist%3Dno_ads%26one_min%3D1008615%26pl%3Drss%26sub%3Dpl51&eg=tag%3Aaudioboom.com%2C2020-03-24%3A%2Fposts%2F7538748&et=Las+llamas+del+amor&eu=https%3A%2F%2Faudioboom.com%2Fposts%2F7538748.mp3%3Fmodified%3D1585066367%26sid%3D5021027%26source%3Drss&f=48615&g=7538748&h=5021027&i=7538748-36271012&k=https%3A%2F%2Faudioboom.com%2Fchannels%2F5021027.rss&n=Palabra+Plena%2C+con+Gabriel+Rol%C3%B3n&o=640601&pl=rss&q=-&r=128&sti=386013&u=audioboom&v=inline&Expires=1751275253&Signature=Ngd2-Lvtr3yIQGJB3LckMRs6XsqIM6A7M5nCgKxl5K0dBAadbBZ4v7nxmrplUEK5jn7fatlfacW9T7821D~ZDfqbTB2gZnBI8lPcl1g2CrJfJHQVdLBvPH3laLLfaDElnOJn1dqLzJvLL-ZAZ1ettO2aNNffmei-yw8k968rgwxrW-D6cphxAsQBv0tAtCHl7uEFSgGiUCzQAg~l7EiCk--39Kt~WBk8cuqCiszalT8OyB5JSmgfivDDydVprWQO1wfyCmkciTvIhogYFAN6mh14Rc8EvUSUvTEyNM8x5977CPe2AmW7ntsa9X7izebRXp0ElTHDRflRTxLNOOmMHA__&Key-Pair-Id=K20FFT4H3A895N' },
-  { id: 205, title: 'Sufrir con dignidad', artist: 'Gabriel Rolón', albumArt: palabraPlenaImageUrl, audioSrc: 'https://d11untcg2uthr3.cloudfront.net/v1/download/attachments/36304235/sufrir-con-dignidad.mp3?a=&c=%5B%22Science%22%2C%22Physics%22%5D&d=2020-03-31&e=dist%3Dno_ads%26one_min%3D1008615%26pl%3Drss%26sub%3Dpl51&eg=tag%3Aaudioboom.com%2C2020-03-31%3A%2Fposts%2F7544854&et=Sufrir+con+dignidad&eu=https%3A%2F%2Faudioboom.com%2Fposts%2F7544854.mp3%3Fmodified%3D1585673781%26sid%3D5021027%26source%3Drss&f=48615&g=7544854&h=5021027&i=7544854-36304235&k=https%3A%2F%2Faudioboom.com%2Fchannels%2F5021027.rss&n=Palabra+Plena%2C+con+Gabriel+Rol%C3%B3n&o=595853&pl=rss&q=-&r=128&sti=386013&u=audioboom&v=inline&Expires=1751278928&Signature=o-TXCmDH~IL8y7rMwXJ7~aAC4pV78r9r72tS794drFpfq3galAUkMDSJCjH0gCh0TsPUNrZUKhX-SBsUBZJWfGQS0odu2bDGDm0LhekQjOf-68nizMFKMu58kOi7PEOfFqD9MU7ZCjf7f-m8HxSZucnabEIMCNgA1gfmkoG8ZUKxz2HGoPQ6rL9g-jidfUb4wk0yVQJYp7Z6mz0OohyyLwbTMi~87C1J0k~ZU8nMI9n7NJGsaxysULDolNp9rNnOSfoqheFuHLqo9BkDeLHEprnatVo9id496XRM-eDYzV1Cs9XoyHREX-iqiD5~Ucanyd~WFD98MUu3KoNwp1xHjg__&Key-Pair-Id=K20FFT4H3A895N' },
-  { id: 206, title: 'El Duelo', artist: 'Gabriel Rolón', albumArt: palabraPlenaImageUrl, audioSrc: 'https://d11untcg2uthr3.cloudfront.net/v1/download/attachments/36333609/el-duelo.mp3?a=&c=%5B%22Science%22%2C%22Physics%22%5D&d=2020-04-07&e=dist%3Dno_ads%26one_min%3D1008604%26pl%3Drss%26sub%3Dpl51&eg=tag%3Aaudioboom.com%2C2020-04-07%3A%2Fposts%2F7550463&et=El+Duelo&eu=https%3A%2F%2Faudioboom.com%2Fposts%2F7550463.mp3%3Fmodified%3D1586288806%26sid%3D5021027%26source%3Drss&f=48604&g=7550463&h=5021027&i=7550463-36333609&k=https%3A%2F%2Faudioboom.com%2Fchannels%2F5021027.rss&n=Palabra+Plena%2C+con+Gabriel+Rol%C3%B3n&o=631484&pl=rss&q=-&r=128&sti=386013&u=audioboom&v=inline&Expires=1751281531&Signature=W~6eB2G~qNkj4OpH2fxQSsNviZ1wg4LyXPapaJlcjp9qyiIcjd6m~FHAB9IOWIJd76d3VkmQvd543YhV83irlmYKzVwb0vplp2ANEvSeNCGpDoim8y1~Ic6-TcuHVfy34o2YARpMUyH0nKE2RPzHKfOMrzM66~BffXn151m3TLqxNGQvB1Ay3OtjYC3tPFCulpxZ-JdaOAKHYCaxIgzr7nO055GeRg03vUFv9tvl0M-IjXIJPdcyhaF-SH4647e8tuSwRhXSQe~CVCJzLxosCBCVIqJLbQyGWxHYb~xOOkOYq4Wb1DQAktzVas~eTt8kG4qrs1epeE7yArcEMeebFg__&Key-Pair-Id=K20FFT4H3A895N' },
-  { id: 207, title: 'La Felicidad', artist: 'Gabriel Rolón', albumArt: palabraPlenaImageUrl, audioSrc: 'https://d11untcg2uthr3.cloudfront.net/v1/download/attachments/36366606/la-felicidad.mp3?a=&c=%5B%22Science%22%2C%22Physics%22%5D&d=2020-04-14&e=dist%3Dno_ads%26one_min%3D1008608%26pl%3Drss%26sub%3Dpl51&eg=tag%3Aaudioboom.com%2C2020-04-14%3A%2Fposts%2F7556490&et=La+Felicidad&eu=https%3A%2F%2Faudioboom.com%2Fposts%2F7556490.mp3%3Fmodified%3D1586888202%26sid%3D5021027%26source%3Drss&f=48608&g=7556490&h=5021027&i=7556490-36366606&k=https%3A%2F%2Faudioboom.com%2Fchannels%2F5021027.rss&n=Palabra+Plena%2C+con+Gabriel+Rol%C3%B3n&o=601940&pl=rss&q=-&r=128&sti=386013&u=audioboom&v=inline&Expires=1751283403&Signature=zLfeFtUE89rZq1fxhu3yHm6aNmuznxIM2y0ESQ8AyYqzP8Ao-j0nn4ijKlhV8IwHcQlFn7idkkPsOxN7gJyl3CSbk9KgOY88xDxhRwiOYSWrNFzw11HHk--8Dv~e1h0GMZmEkqHQPaPs~zOIw73V31B1IE33r3x2nA3iHwLjghEw0DdG-iffEqbkRAVmAyYarwgRW3Ra8GBxFRLTTzcIP1tr51i2ngOEUUdLyjGzJ5I5-ahFx01XixWJbJ4uVoUC2EBdUWqlcYZ24gY7o1mctxb-N7H4TbDM5KYVLcNtTby5XBFVvtoDNnj7-LsycCpjUZ-57qtZrlqP7Lcb2jiPFw__&Key-Pair-Id=K20FFT4H3A895N' },
+const MILTANA_PODCAST_TRACKS = [
+  { id: 208, title: 'Introducción', artist: 'Josué Medina', albumArt: miltanaPodcastImageUrl, audioSrc: 'https://ia800904.us.archive.org/6/items/01-miltana-podcast-introduccion/01%20-%20Miltana%20Podcast%20-%20Introducci%C3%B3n.mp3' },
 ];
 
 const rockAndPopImageUrl = 'https://static.mytuner.mobi/media/tvos_radios/744/fm-rock-pop.32c080fd.jpg';
@@ -179,13 +175,14 @@ const RADIOS_DATA = [
 
 const PODCASTS_DATA = [
   {
-    id: 201,
-    title: 'Palabra Plena',
-    artists: ['Gabriel Rolón'],
-    imageUrl: palabraPlenaImageUrl,
+    id: 202,
+    title: 'Miltana - Nuestra Palabra',
+    artists: ['Josué Medina'],
+    imageUrl: miltanaPodcastImageUrl,
     advisory: false,
-    tracks: PODCAST_TRACKS,
-    biography: "Gabriel Rolón es un reconocido psicoanalista, músico y escritor argentino. Es conocido por su capacidad para acercar el psicoanálisis al público general a través de sus libros, programas de radio y apariciones en televisión. Sus obras, como 'Historias de diván', han sido bestsellers y han sido adaptadas al teatro y la televisión.",
+    tracks: MILTANA_PODCAST_TRACKS,
+    biography: "Miltana - Nuestra Palabra es un podcast de Josué Medina donde se exploran temas de fe, vida y propósito a través de conversaciones honestas y reflexiones profundas. Un espacio para escuchar y ser escuchado.",
+    isPodcast: true,
   },
 ];
 
@@ -240,7 +237,9 @@ const Icon = ({ name, className = 'w-6 h-6' }) => {
     next: <path d="M6 18l8.5-6L6 6v12zM18 6v12h-2V6h2z" />,
     previous: <path d="M18 6l-8.5 6L18 18V6zM6 6v12h2V6H6z" />,
     stop: <path d="M6 6h12v12H6z" />,
-    volume: <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />,
+    "volume-high": <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />,
+    "volume-low": <path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"/>,
+    "volume-mute": <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>,
     search: <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />,
     heart: <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>,
   };
@@ -349,9 +348,19 @@ const Player = ({
   progress,
   duration,
   onSeek,
+  volume,
+  isMuted,
+  onVolumeChange,
+  onMuteToggle,
 }) => {
   const isStream = currentTrack.isStream;
   const isRadioPlayingLive = isStream && isPlaying;
+  
+  const getVolumeIcon = () => {
+    if (isMuted || volume === 0) return 'volume-mute';
+    if (volume < 0.5) return 'volume-low';
+    return 'volume-high';
+  };
 
   const renderPlayPauseButton = () => {
     if (isStream) {
@@ -433,26 +442,29 @@ const Player = ({
         )}
       </div>
 
-      <div className="w-1/4">
-        {/* Placeholder for volume controls etc. */}
+      <div className="w-1/4 flex justify-end items-center">
+        <div className="flex items-center gap-2 w-full max-w-[120px]">
+          <button onClick={onMuteToggle} className="text-gray-400 hover:text-white transition-colors" aria-label={isMuted ? 'Unmute' : 'Mute'}>
+            <Icon name={getVolumeIcon()} className="w-6 h-6" />
+          </button>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={isMuted ? 0 : volume}
+            onChange={onVolumeChange}
+            className="w-full h-1 bg-zinc-600 rounded-lg appearance-none cursor-pointer accent-white hover:accent-green-500"
+            aria-label="volume"
+          />
+        </div>
       </div>
     </footer>
   );
 };
 
 // --- From components/AlbumCard.tsx ---
-const AlbumCard = ({ album, onPlay, onShowDetails, isPlaying }) => {
-  const PlayIcon = ({ className }) => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-    >
-      <path d="M8 5.14v14l11-7-11-7z"></path>
-    </svg>
-  );
-
+const AlbumCard = ({ album, onPlay, onShowDetails, isCurrentlyPlaying }) => {
   const AdvisoryLogo = () => (
       <div className="absolute bottom-2 right-2 bg-gray-800 bg-opacity-80 px-1.5 py-0.5 rounded-sm">
           <p className="text-white text-[8px] font-bold tracking-wider">ADVISORY</p>
@@ -460,7 +472,7 @@ const AlbumCard = ({ album, onPlay, onShowDetails, isPlaying }) => {
   );
 
   const artistsString = album.artists.join(', ');
-  const isCurrentlyPlayingRadio = album.isRadio && isPlaying;
+  const isRadioAndPlaying = album.isRadio && isCurrentlyPlaying;
 
   const handlePlayClick = (e) => {
     e.stopPropagation();
@@ -483,44 +495,30 @@ const AlbumCard = ({ album, onPlay, onShowDetails, isPlaying }) => {
           className="w-full h-full object-cover rounded-md shadow-lg"
         />
         {album.advisory && <AdvisoryLogo />}
+
+        <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:-translate-y-2">
+            <button
+                onClick={handlePlayClick}
+                className={`w-12 h-12 rounded-full flex items-center justify-center
+                    transition-all duration-300 ease-in-out shadow-lg hover:scale-105
+                    ${isRadioAndPlaying
+                        ? 'bg-red-500 hover:bg-red-600'
+                        : 'bg-green-500 hover:bg-green-600'
+                    }`}
+                aria-label={isCurrentlyPlaying ? `Pausar: ${album.title}` : `Reproducir ${album.title}`}
+            >
+                <Icon name={isCurrentlyPlaying ? 'pause' : 'play'} className={`w-6 h-6 ${isCurrentlyPlaying ? '' : 'ml-1'}`} />
+            </button>
+        </div>
       </div>
 
-      <div className="flex-1 min-w-0 flex justify-between items-start gap-2">
-        <div>
-          <h3 className="font-semibold text-white truncate text-base">
-            {album.title}
-          </h3>
-          <p className="text-sm text-gray-400 truncate">
-            {album.isRadio && album.location ? album.location : artistsString}
-          </p>
-        </div>
-        <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            {album.isRadio ? (
-                <button
-                    onClick={handlePlayClick}
-                    className={`h-10 px-4 rounded-full flex items-center justify-center font-bold text-sm text-white
-                        transition-all duration-300 ease-in-out shadow-lg
-                        ${isCurrentlyPlayingRadio
-                            ? 'bg-red-500 hover:bg-red-600'
-                            : 'bg-green-500 hover:bg-green-600'
-                        }`}
-                    aria-label={isCurrentlyPlayingRadio ? `Radio en vivo: ${album.title}` : `Escuchar ${album.title}`}
-                >
-                    <span className="uppercase tracking-wider text-xs">
-                        {isCurrentlyPlayingRadio ? 'En Vivo' : 'Escuchar'}
-                    </span>
-                </button>
-            ) : (
-                <button
-                  onClick={handlePlayClick}
-                  className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center
-                             transition-all duration-300 ease-in-out shadow-lg hover:bg-green-600 hover:scale-105"
-                  aria-label={`Play ${album.title}`}
-                >
-                  <PlayIcon className="w-6 h-6 ml-1" />
-                </button>
-            )}
-        </div>
+      <div className="min-w-0">
+        <h3 className="font-semibold text-white truncate text-base">
+          {album.title}
+        </h3>
+        <p className="text-sm text-gray-400 truncate">
+          {album.isRadio && album.location ? album.location : artistsString}
+        </p>
       </div>
     </div>
   );
@@ -636,7 +634,7 @@ const Sidebar = ({
                 >
                   {isExpanded.radios ? (
                     <React.Fragment>
-                      <span className="invisible">Ver todos</span>
+                      <span>Ver menos</span>
                       <ChevronUpIcon className="w-4 h-4" />
                     </React.Fragment>
                   ) : (
@@ -672,7 +670,7 @@ const Sidebar = ({
                 >
                    {isExpanded.podcasts ? (
                     <React.Fragment>
-                      <span className="invisible">Ver todos</span>
+                      <span>Ver menos</span>
                       <ChevronUpIcon className="w-4 h-4" />
                     </React.Fragment>
                   ) : (
@@ -708,7 +706,7 @@ const Sidebar = ({
                 >
                    {isExpanded.artists ? (
                     <React.Fragment>
-                      <span className="invisible">Ver todos</span>
+                      <span>Ver menos</span>
                       <ChevronUpIcon className="w-4 h-4" />
                     </React.Fragment>
                   ) : (
@@ -759,9 +757,11 @@ const Sidebar = ({
                           <span className="font-semibold">Volver</span>
                       </button>
                     )}
-                    <h3 className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">
-                        {currentAlbum.isRadio ? 'Información' : 'Biografía'}
-                    </h3>
+                    {!currentAlbum.isPodcast && (
+                        <h3 className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">
+                            {currentAlbum.isRadio ? 'Información' : 'Biografía'}
+                        </h3>
+                    )}
                     <div className="text-neutral-300 text-sm whitespace-pre-wrap leading-relaxed max-h-80 overflow-y-auto no-scrollbar">
                         {currentAlbum.biography}
                     </div>
@@ -782,7 +782,7 @@ const Sidebar = ({
                                 >
                                     <div className="w-5 text-center flex-shrink-0">
                                         {isCurrent && isPlaying ? (
-                                        <Icon name="volume" className="w-4 h-4 text-green-500 animate-pulse" />
+                                        <Icon name="volume-high" className="w-4 h-4 text-green-500 animate-pulse" />
                                         ) : (
                                         <span className={`text-sm ${isCurrent ? 'text-green-500' : 'text-neutral-400'}`}>
                                             {index + 1}
@@ -825,7 +825,7 @@ const Sidebar = ({
               className={`${baseButtonStyles} ${isCurrentlyPlayingRadio ? 'bg-red-500 text-white' : `bg-green-500 text-white ${canPlay ? 'hover:bg-green-600' : 'opacity-50 cursor-not-allowed'}`}`}
             >
               {isCurrentlyPlayingRadio ? (
-                <Icon name="volume" className="w-5 h-5 animate-pulse" />
+                <Icon name="volume-high" className="w-5 h-5 animate-pulse" />
               ) : (
                 <PlayIcon className="w-5 h-5"/>
               )}
@@ -848,9 +848,11 @@ const Sidebar = ({
 
         {sidebarDetailAlbum.biography && (
           <div className="mb-6">
-            <h3 className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">
-                {sidebarDetailAlbum.isRadio ? 'Información' : 'Biografía'}
-            </h3>
+            {!sidebarDetailAlbum.isPodcast && (
+              <h3 className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">
+                  {sidebarDetailAlbum.isRadio ? 'Información' : 'Biografía'}
+              </h3>
+            )}
             <div className="text-neutral-300 text-sm whitespace-pre-wrap leading-relaxed">
                 {sidebarDetailAlbum.biography}
             </div>
@@ -998,6 +1000,8 @@ const App = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
+  const [volume, setVolume] = React.useState(0.75);
+  const [isMuted, setIsMuted] = React.useState(false);
   const [sidebarDetailAlbum, setSidebarDetailAlbum] = React.useState(null);
   const [isBioVisible, setIsBioVisible] = React.useState(false);
   const [isLibraryVisibleWhilePlaying, setIsLibraryVisibleWhilePlaying] = React.useState(false);
@@ -1043,35 +1047,35 @@ const App = () => {
 
  const handlePlayAlbum = (album) => {
     if (!album.tracks || album.tracks.length === 0) return;
-
-    const isSameAlbum = currentAlbum?.id === album.id;
-
-    if (!isSameAlbum) {
-        const isNewAlbumRadio = !!album.isRadio;
-        const isCurrentAlbumRadio = !!currentAlbum?.isRadio;
-        if (currentAlbum && isNewAlbumRadio !== isCurrentAlbumRadio) {
-            if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current.removeAttribute('src');
-                if(audioRef.current) audioRef.current.load();
-            }
+    
+    const isNewAlbumRadio = !!album.isRadio;
+    const isCurrentAlbumRadio = !!currentAlbum?.isRadio;
+    if (currentAlbum?.id !== album.id && currentAlbum && isNewAlbumRadio !== isCurrentAlbumRadio) {
+        if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.removeAttribute('src');
+            if(audioRef.current) audioRef.current.load();
         }
-        setCurrentAlbum(album);
-        setCurrentPlaylist(album.tracks);
-        setCurrentTrackIndex(0);
-        setIsPlaying(true);
-    } else {
-        if(audioRef.current) {
-          audioRef.current.currentTime = 0;
-          audioRef.current.play().catch(e => console.error("Error restarting audio:", e));
-        }
-        setCurrentTrackIndex(0);
-        setIsPlaying(true);
     }
-
+    setCurrentAlbum(album);
+    setCurrentPlaylist(album.tracks);
+    setCurrentTrackIndex(0);
+    setIsPlaying(true);
+    
     setIsBioVisible(false);
     setSidebarDetailAlbum(null);
     setIsLibraryVisibleWhilePlaying(false);
+  };
+
+  const handleTogglePlayAlbum = (album) => {
+    if (!album.tracks || album.tracks.length === 0) return;
+    const isSameAlbum = currentAlbum?.id === album.id;
+
+    if (isSameAlbum) {
+      setIsPlaying(prev => !prev);
+    } else {
+      handlePlayAlbum(album);
+    }
   };
 
 
@@ -1174,7 +1178,28 @@ const App = () => {
         setProgress(newTime);
     }
   };
+
+  const handleVolumeChange = React.useCallback((e) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    if (isMuted && newVolume > 0) {
+      setIsMuted(false);
+    } else if (!isMuted && newVolume === 0) {
+      setIsMuted(true);
+    }
+  }, [isMuted]);
+
+  const handleMuteToggle = React.useCallback(() => {
+    setIsMuted(prev => !prev);
+  }, []);
   
+  React.useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.volume = isMuted ? 0 : volume;
+    }
+  }, [volume, isMuted]);
+
   React.useEffect(() => {
     const audio = audioRef.current;
     if (audio && currentTrack) {
@@ -1278,9 +1303,9 @@ const App = () => {
                         <AlbumCard 
                           key={`${album.id}-${album.title}`}
                           album={album} 
-                          onPlay={handlePlayAlbum} 
+                          onPlay={handleTogglePlayAlbum} 
                           onShowDetails={handleShowSidebarDetails}
-                          isPlaying={isPlaying && currentAlbum?.id === album.id}
+                          isCurrentlyPlaying={isPlaying && currentAlbum?.id === album.id}
                         />
                       ))}
                     </div>
@@ -1347,9 +1372,9 @@ const App = () => {
                           <AlbumCard 
                             key={album.id} 
                             album={album} 
-                            onPlay={handlePlayAlbum} 
+                            onPlay={handleTogglePlayAlbum} 
                             onShowDetails={handleShowSidebarDetails}
-                            isPlaying={isPlaying && currentAlbum?.id === album.id}
+                            isCurrentlyPlaying={isPlaying && currentAlbum?.id === album.id}
                           />
                         ))}
                       </div>
@@ -1364,9 +1389,9 @@ const App = () => {
                           <AlbumCard 
                             key={album.id} 
                             album={album} 
-                            onPlay={handlePlayAlbum} 
+                            onPlay={handleTogglePlayAlbum} 
                             onShowDetails={handleShowSidebarDetails}
-                            isPlaying={isPlaying && currentAlbum?.id === album.id}
+                            isCurrentlyPlaying={isPlaying && currentAlbum?.id === album.id}
                           />
                         ))}
                       </div>
@@ -1381,9 +1406,9 @@ const App = () => {
                           <AlbumCard 
                             key={album.id} 
                             album={album} 
-                            onPlay={handlePlayAlbum} 
+                            onPlay={handleTogglePlayAlbum} 
                             onShowDetails={handleShowSidebarDetails} 
-                            isPlaying={isPlaying && currentAlbum?.id === album.id}
+                            isCurrentlyPlaying={isPlaying && currentAlbum?.id === album.id}
                           />
                         ))}
                       </div>
@@ -1429,6 +1454,10 @@ const App = () => {
           progress={progress}
           duration={duration}
           onSeek={handleSeek}
+          volume={volume}
+          isMuted={isMuted}
+          onVolumeChange={handleVolumeChange}
+          onMuteToggle={handleMuteToggle}
         />
       )}
       

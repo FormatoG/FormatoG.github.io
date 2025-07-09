@@ -73,6 +73,13 @@ const SYLVINA_BRIZUELA_TRACKS = [
   { id: 23, title: 'Sos lo que yo quiero', artist: 'Sylvina Brizuela', albumArt: 'https://ia600401.us.archive.org/10/items/tapa_20250702/tapa.jpg', featuring: 'Federico Díaz', audioSrc: 'https://archive.org/download/como-ristra-e-chacarera/Sos%20lo%20que%20yo%20quiero%20con%20Federico%20D%C3%ADaz.mp3' },
 ];
 
+const CODA_ALBUM_ART = 'https://ia800908.us.archive.org/20/items/20250706-0215-cuervo-nocturno-elevado-simple-compose-01jzf-2h-2wpenrr-0ntjbdjksgn-4/20250706_0215_Cuervo%20Nocturno%20Elevado_simple_compose_01jzf2h2wpenrr0ntjbdjksgn4.png';
+const CODA_TRACKS = [
+  { id: 24, title: 'Libertad en la Llama', artist: 'Coda', albumArt: CODA_ALBUM_ART, audioSrc: 'https://ia601504.us.archive.org/25/items/luces-negras/Libertad%20en%20la%20Llama.mp3' },
+  { id: 25, title: 'Luces Negras', artist: 'Coda', albumArt: CODA_ALBUM_ART, audioSrc: 'https://ia601504.us.archive.org/25/items/luces-negras/Luces%20Negras.mp3' },
+  { id: 26, title: 'Fuego y Tormenta', artist: 'Coda', albumArt: CODA_ALBUM_ART, featuring: 'Nohemí', audioSrc: 'https://ia601504.us.archive.org/25/items/luces-negras/Fuego%20y%20Tormenta.mp3' },
+];
+
 
 const miltanaPodcastImageUrl = 'https://ia600403.us.archive.org/8/items/podcast_20250703/podcast.png';
 
@@ -227,6 +234,14 @@ const ALBUMS_DATA = [
     albumUrl: 'https://sites.google.com/view/sylvinabrizuela/sylvina-brizuela',
     biography: 'Sylvina Brizuela es cantante solista de folklore y profesora de vocalización de la ciudad de Presidencia Roque Sáenz Peña en la provincia del Chaco. Con una voz profunda y auténtica, combina la fuerza del canto tradicional con una calidez cercana que conecta con su público. Participa activamente en festivales y encuentros culturales, y también comparte su pasión por la música enseñando a nuevas generaciones. En cada escenario, Sylvina transmite raíces, identidad y emoción',
   },
+  {
+    id: 5,
+    title: 'El Cuervo de la Libertad',
+    artists: ['Coda'],
+    imageUrl: CODA_ALBUM_ART,
+    advisory: false,
+    tracks: CODA_TRACKS,
+  },
 ];
 
 // --- From components/Icons.tsx ---
@@ -308,6 +323,137 @@ const LikeModal = ({ onClose, onContribute }) => {
   );
 };
 
+// --- From components/MobileNowPlayingBar.tsx ---
+const MobileNowPlayingBar = ({ albumTitle, trackTitle, onClick }) => {
+  return (
+    <div
+      onClick={onClick}
+      className="fixed bottom-24 left-0 right-0 h-12 bg-neutral-900/90 backdrop-blur-sm text-white flex items-center justify-center px-4 z-40 md:hidden cursor-pointer border-t border-neutral-800"
+      role="button"
+      tabIndex="0"
+      aria-label={`Reproduciendo: ${trackTitle} de ${albumTitle}. Toca para ver detalles.`}
+    >
+        <div className="flex items-center gap-3 min-w-0">
+            <Icon name="volume-high" className="w-5 h-5 text-green-500 flex-shrink-0 animate-pulse" />
+            <p className="text-sm font-medium truncate">
+                <span className="font-semibold text-white">{trackTitle}</span>
+                <span className="text-neutral-400">・{albumTitle}</span>
+            </p>
+        </div>
+    </div>
+  );
+};
+
+// --- From components/MobileDetailView.tsx ---
+const MobileDetailView = ({ album, onClose, onPlayAlbum, onPlayTrack, isAlbumCurrentlyPlaying, currentTrackId, isPlaying, isPlayerActive }) => {
+    if (!album) return null;
+
+    const ArrowLeftIcon = ({ className }) => (
+        <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+    );
+
+    React.useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = 'auto';
+        }
+    }, []);
+
+    const mainContentRef = React.useRef(null);
+
+    React.useEffect(() => {
+        if(mainContentRef.current) {
+            mainContentRef.current.scrollTop = 0;
+        }
+    }, [album]);
+    
+    return (
+        <div className={`fixed inset-x-0 top-0 ${isPlayerActive ? 'bottom-24' : 'bottom-0'} bg-[#121212] z-[60] flex flex-col md:hidden animate-fade-in-up`}>
+            <header className="p-2 flex items-center flex-shrink-0 bg-gradient-to-b from-black/80 to-transparent sticky top-0">
+                <button onClick={onClose} className="p-2 rounded-full hover:bg-neutral-800 transition-colors">
+                    <ArrowLeftIcon className="w-6 h-6 text-white" />
+                </button>
+            </header>
+            <div ref={mainContentRef} className="overflow-y-auto no-scrollbar pb-24">
+                <div className="px-4 text-center">
+                    <img src={album.imageUrl} alt={album.title} className="w-full aspect-square rounded-lg shadow-xl mx-auto max-w-xs object-cover" />
+                    <h1 className="text-3xl font-bold text-white mt-6 truncate">{album.title}</h1>
+                    <p className="text-base text-neutral-300 font-semibold mt-1">{album.isRadio && album.location ? album.location : album.artists.join(', ')}</p>
+                    <p className="text-sm text-neutral-400 mt-1">{album.isRadio ? 'Radio' : (album.isPodcast ? 'Podcast' : 'Album')} {album.tracks && !album.isRadio && `· ${album.tracks.length} canciones`}</p>
+                </div>
+
+                {!isAlbumCurrentlyPlaying && (
+                  <div className="mt-6 px-4">
+                       <button
+                          onClick={() => onPlayAlbum(album)}
+                          disabled={!album.tracks || album.tracks.length === 0}
+                          className="w-full font-bold py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-colors text-sm bg-green-500 text-white hover:bg-green-600 disabled:opacity-50"
+                      >
+                          <Icon name="play" className="w-5 h-5"/>
+                          <span className="whitespace-nowrap uppercase tracking-wider">
+                              {album.isRadio ? 'Escuchar' : 'Reproducir'}
+                          </span>
+                      </button>
+                  </div>
+                )}
+                
+                {album.tracks && album.tracks.length > 0 && !album.isRadio && (
+                    <div className="mt-4">
+                        <ul className="space-y-1">
+                            {album.tracks.map((track, index) => {
+                                const isCurrentTrack = track.id === currentTrackId;
+                                return (
+                                    <li 
+                                        key={track.id}
+                                        onClick={() => onPlayTrack(index)}
+                                        className="flex items-center gap-4 px-4 py-3 cursor-pointer group hover:bg-neutral-800/50 transition-colors"
+                                    >
+                                        <img src={track.albumArt} alt={track.title} className="w-12 h-12 rounded-md object-cover flex-shrink-0" />
+                                        <div className="flex-1 min-w-0 text-left">
+                                            <p className={`truncate font-medium ${isCurrentTrack ? 'text-green-500' : 'text-white'}`}>{track.title}</p>
+                                            <p className="text-sm text-neutral-400 truncate">{track.artist}{track.featuring && ` feat. ${track.featuring}`}</p>
+                                        </div>
+                                        <div className="px-2 flex items-center justify-center">
+                                            {isCurrentTrack && isPlaying ? (
+                                                <Icon name="volume-high" className="w-5 h-5 text-green-500 animate-pulse" />
+                                            ) : (
+                                                <Icon name="play" className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                                            )}
+                                        </div>
+                                    </li>
+                                )})}
+                        </ul>
+                    </div>
+                )}
+
+                {album.biography && (
+                    <div className="px-4 mt-8 pb-8">
+                        <h3 className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">
+                            {album.isRadio ? 'Información' : 'Biografía'}
+                        </h3>
+                        <div className="text-neutral-300 text-sm whitespace-pre-wrap leading-relaxed">
+                            {album.biography}
+                        </div>
+                    </div>
+                )}
+
+            </div>
+             <style>{`
+                @keyframes fade-in-up {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                .animate-fade-in-up {
+                    animation: fade-in-up 0.3s ease-out forwards;
+                }
+            `}</style>
+        </div>
+    );
+};
+
+
 // --- From components/HeroBanner.tsx ---
 const HeroBanner = ({ album }) => {
   return (
@@ -348,19 +494,9 @@ const Player = ({
   progress,
   duration,
   onSeek,
-  volume,
-  isMuted,
-  onVolumeChange,
-  onMuteToggle,
 }) => {
   const isStream = currentTrack.isStream;
   const isRadioPlayingLive = isStream && isPlaying;
-  
-  const getVolumeIcon = () => {
-    if (isMuted || volume === 0) return 'volume-mute';
-    if (volume < 0.5) return 'volume-low';
-    return 'volume-high';
-  };
 
   const renderPlayPauseButton = () => {
     if (isStream) {
@@ -395,11 +531,11 @@ const Player = ({
 
   return (
     <footer className="fixed bottom-0 left-0 right-0 h-24 bg-[#181818] border-t border-zinc-800 text-white flex items-center px-4 z-50">
-      <div className="flex items-center gap-4 w-1/4 min-w-0">
+      <div className="hidden md:flex items-center gap-4 w-1/4 min-w-0">
         <img src={currentTrack.albumArt} alt={currentTrack.title} className="w-14 h-14 rounded-md" />
         <div className="min-w-0">
           <p className="font-semibold truncate">{currentTrack.title}</p>
-          <p className="text-sm text-gray-400 truncate">{currentTrack.artist}</p>
+          <p className="text-sm text-gray-400 truncate">{currentTrack.artist}{currentTrack.featuring && ` feat. ${currentTrack.featuring}`}</p>
         </div>
       </div>
       
@@ -442,22 +578,7 @@ const Player = ({
         )}
       </div>
 
-      <div className="w-1/4 flex justify-end items-center">
-        <div className="flex items-center gap-2 w-full max-w-[120px]">
-          <button onClick={onMuteToggle} className="text-gray-400 hover:text-white transition-colors" aria-label={isMuted ? 'Unmute' : 'Mute'}>
-            <Icon name={getVolumeIcon()} className="w-6 h-6" />
-          </button>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={isMuted ? 0 : volume}
-            onChange={onVolumeChange}
-            className="w-full h-1 bg-zinc-600 rounded-lg appearance-none cursor-pointer accent-white hover:accent-green-500"
-            aria-label="volume"
-          />
-        </div>
+      <div className="hidden md:flex w-1/4 justify-end items-center">
       </div>
     </footer>
   );
@@ -793,7 +914,7 @@ const Sidebar = ({
                                         <p className={`truncate font-medium ${isCurrent ? 'text-green-500' : 'text-white'}`}>
                                         {track.title}
                                         </p>
-                                        <p className="text-xs text-neutral-400 truncate">{track.artist}</p>
+                                        <p className="text-xs text-neutral-400 truncate">{track.artist}{track.featuring && ` feat. ${track.featuring}`}</p>
                                     </div>
                                 </li>
                             );
@@ -874,7 +995,7 @@ const Sidebar = ({
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="truncate font-medium text-white">{track.title}</p>
-                      <p className="text-xs text-neutral-400 truncate">{track.artist}</p>
+                      <p className="text-xs text-neutral-400 truncate">{track.artist}{track.featuring && ` feat. ${track.featuring}`}</p>
                     </div>
                   </li>
                 ))}
@@ -1003,6 +1124,7 @@ const App = () => {
   const [volume, setVolume] = React.useState(0.75);
   const [isMuted, setIsMuted] = React.useState(false);
   const [sidebarDetailAlbum, setSidebarDetailAlbum] = React.useState(null);
+  const [mobileDetailAlbum, setMobileDetailAlbum] = React.useState(null);
   const [isBioVisible, setIsBioVisible] = React.useState(false);
   const [isLibraryVisibleWhilePlaying, setIsLibraryVisibleWhilePlaying] = React.useState(false);
   const [activeView, setActiveView] = React.useState('all');
@@ -1084,6 +1206,7 @@ const App = () => {
     setIsPlaying(true);
     setIsBioVisible(false);
     setSidebarDetailAlbum(null);
+    setMobileDetailAlbum(null);
     setIsLibraryVisibleWhilePlaying(false);
   }, []);
   
@@ -1112,13 +1235,15 @@ const App = () => {
       }
   }, [currentAlbum]);
 
-  const handleShowSidebarDetails = React.useCallback((album) => {
+  const handleShowDetails = React.useCallback((album) => {
     setSidebarDetailAlbum(album);
+    setMobileDetailAlbum(album);
     setIsLibraryVisibleWhilePlaying(false);
   }, []);
   
-  const handleClearSidebarDetails = React.useCallback(() => {
+  const handleClearDetails = React.useCallback(() => {
     setSidebarDetailAlbum(null);
+    setMobileDetailAlbum(null);
   }, []);
 
   const handleToggleBio = React.useCallback(() => {
@@ -1143,6 +1268,7 @@ const App = () => {
       setCurrentAlbum(null);
       setIsBioVisible(false);
       setSidebarDetailAlbum(null);
+      setMobileDetailAlbum(null);
     }
   }, [currentTrackIndex, currentPlaylist.length]);
 
@@ -1165,6 +1291,7 @@ const App = () => {
     setCurrentAlbum(null);
     setIsBioVisible(false);
     setSidebarDetailAlbum(null);
+    setMobileDetailAlbum(null);
     if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
@@ -1271,11 +1398,11 @@ const App = () => {
             currentTrackId={currentTrack?.id ?? null}
             isPlaying={isPlaying}
             onTrackSelect={handleTrackSelect}
-            onShowDetails={handleShowSidebarDetails}
+            onShowDetails={handleShowDetails}
             isBioVisible={isBioVisible}
             onToggleBio={handleToggleBio}
             sidebarDetailAlbum={sidebarDetailAlbum}
-            onClearSidebarDetails={handleClearSidebarDetails}
+            onClearSidebarDetails={handleClearDetails}
             onPlayAlbum={handlePlayAlbum}
             onPlayTrackFromDetails={handlePlayTrackFromDetails}
             isLibraryVisibleWhilePlaying={isLibraryVisibleWhilePlaying}
@@ -1304,7 +1431,7 @@ const App = () => {
                           key={`${album.id}-${album.title}`}
                           album={album} 
                           onPlay={handleTogglePlayAlbum} 
-                          onShowDetails={handleShowSidebarDetails}
+                          onShowDetails={handleShowDetails}
                           isCurrentlyPlaying={isPlaying && currentAlbum?.id === album.id}
                         />
                       ))}
@@ -1329,7 +1456,7 @@ const App = () => {
                               Reproducir Álbum
                           </button>
                           <button
-                              onClick={() => handleShowSidebarDetails(featuredAlbum)}
+                              onClick={() => handleShowDetails(featuredAlbum)}
                               className="bg-black/50 text-white font-bold py-3 px-6 rounded-full border border-white/50 hover:bg-white/20 hover:scale-105 transition-all duration-200 shadow-lg"
                           >
                               Ver Artista
@@ -1373,7 +1500,7 @@ const App = () => {
                             key={album.id} 
                             album={album} 
                             onPlay={handleTogglePlayAlbum} 
-                            onShowDetails={handleShowSidebarDetails}
+                            onShowDetails={handleShowDetails}
                             isCurrentlyPlaying={isPlaying && currentAlbum?.id === album.id}
                           />
                         ))}
@@ -1390,7 +1517,7 @@ const App = () => {
                             key={album.id} 
                             album={album} 
                             onPlay={handleTogglePlayAlbum} 
-                            onShowDetails={handleShowSidebarDetails}
+                            onShowDetails={handleShowDetails}
                             isCurrentlyPlaying={isPlaying && currentAlbum?.id === album.id}
                           />
                         ))}
@@ -1407,7 +1534,7 @@ const App = () => {
                             key={album.id} 
                             album={album} 
                             onPlay={handleTogglePlayAlbum} 
-                            onShowDetails={handleShowSidebarDetails} 
+                            onShowDetails={handleShowDetails} 
                             isCurrentlyPlaying={isPlaying && currentAlbum?.id === album.id}
                           />
                         ))}
@@ -1454,10 +1581,6 @@ const App = () => {
           progress={progress}
           duration={duration}
           onSeek={handleSeek}
-          volume={volume}
-          isMuted={isMuted}
-          onVolumeChange={handleVolumeChange}
-          onMuteToggle={handleMuteToggle}
         />
       )}
       
@@ -1467,6 +1590,27 @@ const App = () => {
           onContribute={handleContribute}
         />
       )}
+      
+      {isPlayerActive && !mobileDetailAlbum && (
+        <MobileNowPlayingBar
+          albumTitle={currentAlbum.title}
+          trackTitle={currentTrack.title}
+          onClick={() => handleShowDetails(currentAlbum)}
+        />
+      )}
+
+      {mobileDetailAlbum && (
+        <MobileDetailView
+            album={mobileDetailAlbum}
+            onClose={handleClearDetails}
+            onPlayAlbum={handlePlayAlbum}
+            onPlayTrack={(trackIndex) => handlePlayTrackFromDetails(mobileDetailalbum, trackIndex)}
+            isAlbumCurrentlyPlaying={isPlaying && currentAlbum?.id === mobileDetailAlbum.id}
+            currentTrackId={currentTrack?.id ?? null}
+            isPlaying={isPlaying}
+            isPlayerActive={isPlayerActive}
+        />
+       )}
     </div>
   );
 };

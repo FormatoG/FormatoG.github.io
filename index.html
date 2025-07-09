@@ -219,7 +219,7 @@ const ALBUMS_DATA = [
     artists: ['iNDEFINIDOS'],
     imageUrl: 'https://f4.bcbits.com/img/0017813230_10.jpg',
     advisory: false,
-    albumUrl: 'https://sites.google.com/view/indefinidos/indefinidos',
+    albumUrl: 'https://formatog.github.io/iNDEFINIDOS/',
     tracks: INDEFINIDOS_TRACKS,
     biography: "Indefinidos es una banda amateur de cuatro integrantes que explora sin miedo los sonidos que les atraviesan. Sin etiquetas fijas, su música es un cruce entre lo que sienten y lo que escuchan: un poco de rock, algo de indie, toques de funk, y muchas ganas de decir lo que no siempre se puede con palabras.\n\nFormados entre amigos y ensayos que empezaron casi por juego, hoy Indefinidos busca su lugar en la escena con canciones honestas, energía cruda y ese caos creativo que los define. No prometen perfección, pero sí verdad, actitud y música que vibra."
   },
@@ -231,7 +231,7 @@ const ALBUMS_DATA = [
     bannerImageUrl: 'https://dn721909.ca.archive.org/0/items/sin-titulo-1-copia/Sin%20t%C3%ADtulo-1%20copia.jpg',
     advisory: false,
     tracks: SYLVINA_BRIZUELA_TRACKS,
-    albumUrl: 'https://sites.google.com/view/sylvinabrizuela/sylvina-brizuela',
+    albumUrl: 'https://formatog.github.io/SylvinaBrizuela/',
     biography: 'Sylvina Brizuela es cantante solista de folklore y profesora de vocalización de la ciudad de Presidencia Roque Sáenz Peña en la provincia del Chaco. Con una voz profunda y auténtica, combina la fuerza del canto tradicional con una calidez cercana que conecta con su público. Participa activamente en festivales y encuentros culturales, y también comparte su pasión por la música enseñando a nuevas generaciones. En cada escenario, Sylvina transmite raíces, identidad y emoción',
   },
   {
@@ -957,8 +957,6 @@ const Sidebar = ({
             {sidebarDetailAlbum.albumUrl && (
                 <a
                     href={sidebarDetailAlbum.albumUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className={`${baseButtonStyles} border border-neutral-500 text-white hover:bg-neutral-800`}
                 >
                     <ExternalLinkIcon className="w-5 h-5" />

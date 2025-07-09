@@ -1604,7 +1604,7 @@ const App = () => {
             album={mobileDetailAlbum}
             onClose={handleClearDetails}
             onPlayAlbum={handlePlayAlbum}
-            onPlayTrack={(trackIndex) => handlePlayTrackFromDetails(mobileDetailalbum, trackIndex)}
+            onPlayTrack={(trackIndex) => handlePlayTrackFromDetails(mobileDetailAlbum, trackIndex)}
             isAlbumCurrentlyPlaying={isPlaying && currentAlbum?.id === mobileDetailAlbum.id}
             currentTrackId={currentTrack?.id ?? null}
             isPlaying={isPlaying}
